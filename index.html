@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8085 Digital Clock Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div class="chip">8085 MICROPROCESSOR MINI PROJECT</div>
+      <h1>Digital Clock <span>Simulator</span></h1>
+      <p>Explore counter logic inspired by the Intel 8085 microprocessor.</p>
+    </header>
+
+    <section class="clock-panel">
+      <div class="panel-top">
+        <span class="live-dot"></span>
+        <span id="status">READY TO START</span>
+        <span class="mode">STOPWATCH MODE</span>
+      </div>
+      <div id="clock" aria-live="polite">00:00:00</div>
+      <div class="time-labels"><span>HOURS</span><span>MINUTES</span><span>SECONDS</span></div>
+      <div class="controls">
+        <button id="start" class="primary">▶ Start</button>
+        <button id="pause">Ⅱ Pause</button>
+        <button id="reset">↻ Reset</button>
+      </div>
+      <p class="hint">The browser clock is a UI demonstration. The assembly program runs separately in GNUSim8085.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card-heading"><span class="icon">▦</span><div><h2>8085 Counter Monitor</h2><p>Illustrative register/memory values</p></div></div>
+        <div class="metric"><span>Accumulator (A)</span><strong id="accumulator">00H</strong></div>
+        <div class="metric"><span>Memory address</span><strong>2050H</strong></div>
+        <div class="metric"><span>Counter value</span><strong id="counter">00H</strong></div>
+        <div class="metric"><span>Counter range</span><strong>00H–3BH</strong></div>
+        <p class="note">These values illustrate the counter concept; they are not read from GNUSim8085.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-heading"><span class="icon">⌘</span><div><h2>8085 Concepts</h2><p>Instructions used in the assembly file</p></div></div>
+        <div class="concept"><code>INR A</code><span>Increment accumulator</span></div>
+        <div class="concept"><code>CPI 3CH</code><span>Compare with decimal 60</span></div>
+        <div class="concept"><code>JNZ</code><span>Conditional jump</span></div>
+        <div class="concept"><code>STA 2050H</code><span>Store counter in memory</span></div>
+      </article>
+    </section>
+
+    <section class="steps card">
+      <h2>How to demonstrate</h2>
+      <ol>
+        <li>Open <code>digital_clock.asm</code> in GNUSim8085.</li>
+        <li>Assemble the program and check for errors.</li>
+        <li>Run or single-step the program, then inspect memory address <code>2050H</code>.</li>
+        <li>Open this <code>index.html</code> in a browser and test Start, Pause and Reset.</li>
+      </ol>
+    </section>
+    <footer>Digital Clock Simulator · 8085 Assembly Language learning project</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
